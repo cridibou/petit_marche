@@ -5,8 +5,19 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:petit_marche/models/shop_model.dart';
 
 class ShopCarousel extends StatelessWidget {
-  bool _promo(int index) => shops[index].promotions != "";
-  bool _info(int index) => shops[index].info != "";
+  dynamic _promo(Shop shop) {
+    if (shop.promotions != null) {
+      return Icon(Icons.star_outline);
+    } else
+      return Container();
+  }
+
+  dynamic _info(Shop shop) {
+    if (shop.info != null) {
+      return Icon(Icons.info_outline);
+    } else
+      return Container();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,15 +92,16 @@ class ShopCarousel extends StatelessWidget {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Icon(Icons.star_outline),
+                                            _info(shop),
+                                            _promo(shop),
+                                            Text(
+                                              '${shop.products.length} produits',
+                                              style: TextStyle(
+                                                  fontSize: 20.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  letterSpacing: 1.2),
+                                            ),
                                           ],
-                                        ),
-                                        Text(
-                                          '${shop.products.length} produits',
-                                          style: TextStyle(
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.w600,
-                                              letterSpacing: 1.2),
                                         ),
                                       ],
                                     ),
