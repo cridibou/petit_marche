@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:petit_marche/widgets/around_me_grid.dart';
 import 'package:petit_marche/widgets/shops_carousel.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,11 +11,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
+  int _currentTab = 0;
 
   List<IconData> _icons = [
     FontAwesomeIcons.carrot,
-    FontAwesomeIcons.soap,
-    FontAwesomeIcons.wineBottle,
+    FontAwesomeIcons.hamburger,
+    FontAwesomeIcons.personBooth,
     FontAwesomeIcons.search
   ];
 
@@ -73,8 +75,37 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 20.0,
             ),
             ShopCarousel(),
+            AroundMeGrid(),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentTab,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.shopping_basket_outlined,
+                size: 30.0,
+                color: Colors.black,
+              ),
+              label: ''),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.message_outlined,
+                size: 30.0,
+                color: Colors.black,
+              ),
+              label: ''),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person_outline,
+                size: 30.0,
+                color: Colors.black,
+              ),
+              label: ''),
+        ],
       ),
     );
   }

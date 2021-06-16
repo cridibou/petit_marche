@@ -4,6 +4,7 @@ import 'package:petit_marche/models/product_model.dart';
 
 class Shop {
   String imageUrl;
+  String type;
   String city;
   String country;
   String description;
@@ -14,6 +15,7 @@ class Shop {
 
   Shop(
       {this.imageUrl,
+      this.type,
       this.city,
       this.country,
       this.description,
@@ -83,6 +85,30 @@ List<Shop> shops = [
     city: 'Cannes',
     country: 'France',
     description: 'Fromages et produits fins italiens',
+    products: products,
+  ),
+];
+
+List<Shop> favoriteShops = [
+  Shop(
+      imageUrl: 'assets/images/verger_rabiac.jpg',
+      city: 'Antibes',
+      country: 'France',
+      description: 'Produits frais, fruits et legumes locaux et de saison',
+      products: products,
+      info: 'Exceptionnellement ferme samedi 12 juin'),
+  Shop(
+    imageUrl: 'assets/images/fromagerie_etable.jpg',
+    city: 'Cannes',
+    country: 'France',
+    description: 'Fromages et produits fins italiens',
+    products: products,
+  ),
+  Shop(
+    imageUrl: 'assets/images/guildive_antibes.jpg',
+    city: 'Menton',
+    country: 'France',
+    description: 'Rhums et spiritieux',
     products: products,
   ),
 ];

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petit_marche/screens/home_screen.dart';
+import 'package:petit_marche/screens/shop_screen.dart';
 
 void main() => runApp(MyApp());
 
